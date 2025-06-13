@@ -1,4 +1,4 @@
-import 'package:my_new_flutter_app/models/card_investment.dart';
+import 'package:my_new_flutter_app/data/models/card_investment.dart';
 
 const investments = [
   CardInvestment('1', 'Investment 1', 'FI', 100.0),
