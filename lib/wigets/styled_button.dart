@@ -16,7 +16,7 @@ class StyledButton extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         foregroundColor: Colors.white,
-        backgroundColor: Colors.blue, // Text color
+        backgroundColor: Colors.red, // Text color
         padding: const EdgeInsets.symmetric(horizontal: 150, vertical: 10),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10), // Rounded corners
