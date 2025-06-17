@@ -1,6 +1,6 @@
-import 'package:my_new_flutter_app/models/card_investment.dart';
+import 'package:my_new_flutter_app/data/models/card_investment.dart';
 
-const investments = [
+final investments = [
   CardInvestment('1', 'Investment 1', 'FI', 100.0),
   CardInvestment('2', 'Investment 2', 'FP', 200.0),
   CardInvestment('3', 'Investment 3', 'BO', 300.0),

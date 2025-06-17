@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_new_flutter_app/views/home_screen.dart';
+import 'package:my_new_flutter_app/presentation/views/home_screen.dart';
 import 'package:my_new_flutter_app/wigets/styled_button.dart';
 import 'package:my_new_flutter_app/wigets/styled_textfield.dart';
 
@@ -34,8 +34,7 @@ class LoginScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) => const HomeContainer()),
+                  MaterialPageRoute(builder: (context) => const HomeScreen()),
                 );
               },
             ),
