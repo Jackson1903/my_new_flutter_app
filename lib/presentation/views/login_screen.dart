@@ -6,8 +6,6 @@ import 'package:my_new_flutter_app/wigets/styled_textfield.dart';
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
-  final textButtonLogin = 'Ingresar';
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +28,7 @@ class LoginScreen extends StatelessWidget {
             ),
             const SizedBox(height: 290),
             StyledButton(
-              text: textButtonLogin,
+              text: 'Ingresar',
               onPressed: () {
                 Navigator.push(
                   context,

@@ -14,9 +14,9 @@ class StyledCards extends StatelessWidget {
           return Card(
             margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             child: ListTile(
-              title: Text(investment.cardName ?? ''),
+              title: Text(investment.cardName),
               subtitle: Text(
-                  'Monto: ₡${investment.investmentAmount.toStringAsFixed(2) ?? ''}'),
+                  'Monto: ₡${investment.investmentAmount.toStringAsFixed(2)}'),
               trailing: const Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -32,7 +32,7 @@ class StyledCards extends StatelessWidget {
               tileColor: Colors.grey[200],
               leading: CircleAvatar(
                 backgroundColor: Colors.red,
-                child: Text(investment.cardType ?? '',
+                child: Text(investment.cardType,
                     style: const TextStyle(color: Colors.white)),
               ),
             ),
