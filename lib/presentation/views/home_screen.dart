@@ -9,13 +9,14 @@ import 'package:my_new_flutter_app/wigets/styled_cards.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
-  void _openAddOverlayInvestment(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      builder: (ctx) => const Text('Booton Sheet'),
-    );
+  @override
+  State<StatefulWidget> createState() {
+    return _HomeScreenState();
   }
+}
 
+class _HomeScreenState extends State<HomeScreen> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -34,7 +35,9 @@ class HomeScreen extends StatefulWidget {
       body: Column(
         children: [
           const SizedBox(height: 20),
-          const StyledCards(),
+          StyledCards(
+            investments: investments,
+          ),
           const SizedBox(height: 20),
           Padding(
             padding: const EdgeInsets.only(bottom: 16.0),
@@ -53,18 +56,50 @@ class HomeScreen extends StatefulWidget {
     );
   }
 
-  void _addInvestment(CardInvestment cardInvestment) {
-    setState(() {
-      investments.add(cardInvestment);
-    });
-    // Aquí puedes agregar la lógica para agregar una nueva inversión
+  // List<CardInvestment> investments = []; }
+  void _openAddOverlayInvestment(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      builder: (ctx) => Padding(
+        padding: MediaQuery.of(ctx).viewInsets,
+        child: Container(
+          height: MediaQuery.of(ctx).size.height * 0.4, // 40% del alto de pantalla
+          width: double.infinity,
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.red,
+                    foregroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      investments.add(
+                        const CardInvestment(
+                          '17',
+                          'Invesment 17',
+                          'FI',
+                          1000.00,
+                        ),
+                      );
+                    });
+                    Navigator.of(ctx).pop();
+                  },
+                  child: const Text('Agregar Card'),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
-
-  @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    throw UnimplementedError();
-  }
-
-  void setState(Null Function() param0) {}
 }

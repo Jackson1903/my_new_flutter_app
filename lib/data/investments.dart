@@ -1,6 +1,6 @@
 import 'package:my_new_flutter_app/data/models/card_investment.dart';
 
-final investments = [
+List<CardInvestment> investments = [
   const CardInvestment('1', 'Investment 1', 'FI', 100.0),
   const CardInvestment('2', 'Investment 2', 'FP', 200.0),
   const CardInvestment('3', 'Investment 3', 'BO', 300.0),
