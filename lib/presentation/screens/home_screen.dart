@@ -1,27 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:my_new_flutter_app/data/models/card_investment.dart';
-import 'package:my_new_flutter_app/presentation/views/new_invesment_screen.dart';
-import 'package:my_new_flutter_app/presentation/views/login_screen.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:my_new_flutter_app/presentation/screens/new_invesment_screen.dart';
+import 'package:my_new_flutter_app/presentation/screens/login_screen.dart';
 import 'package:my_new_flutter_app/wigets/styled_button.dart';
-import 'package:my_new_flutter_app/data/investments.dart';
 
 import 'package:my_new_flutter_app/wigets/styled_cards.dart';
 
-class HomeScreen extends StatefulWidget {
+import '../../data/providers/get_investment_provider.dart';
+
+class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  State<StatefulWidget> createState() {
+  ConsumerState<HomeScreen> createState() {
     return _HomeScreenState();
   }
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends ConsumerState<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    final ref = this.ref;
+    final investmentProvider = ref.watch(getInvestmentProviderProvider);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('BAC Investments'),
+        title: const Text('BAC Investments', style: TextStyle(color: Colors.white)),
         backgroundColor: Colors.red,
         actions: [
           IconButton(
@@ -36,8 +39,12 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Column(
         children: [
           const SizedBox(height: 20),
-          StyledCards(
-            investments: investments,
+          investmentProvider.when(
+            data: (investments) => StyledCards(
+              investments: investments,
+            ),
+            loading: () => const Center(child: CircularProgressIndicator()),
+            error: (error, stack) => Center(child: Text('Error: $error')),
           ),
           const SizedBox(height: 20),
           Padding(
@@ -82,17 +89,18 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (ctx) => const NewInvesment()));
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (ctx) => const NewInvesment()));
                     // setState(() {
-                      //investments.add(
-                        //const CardInvestment(
-                          //'17',
-                          //'Invesment 17',
-                          //'FI',
-                          //1000.00,
-                       // ),
-                     // );
-                   // });
+                    //investments.add(
+                    //const CardInvestment(
+                    //'17',
+                    //'Invesment 17',
+                    //'FI',
+                    //1000.00,
+                    // ),
+                    // );
+                    // });
                     //Navigator.of(ctx).pop();
                   },
                   child: const Text('Agregar Card'),

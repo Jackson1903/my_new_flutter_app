@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_new_flutter_app/presentation/views/home_screen.dart';
+import 'package:my_new_flutter_app/presentation/screens/home_screen.dart';
 import 'package:my_new_flutter_app/wigets/styled_button.dart';
 import 'package:my_new_flutter_app/wigets/styled_textfield.dart';
 

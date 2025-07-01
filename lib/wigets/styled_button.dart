@@ -12,17 +12,20 @@ class StyledButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        foregroundColor: Colors.white,
-        backgroundColor: Colors.red, // Text color
-        padding: const EdgeInsets.symmetric(horizontal: 150, vertical: 10),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10), // Rounded corners
+    return SizedBox(
+      child: ElevatedButton(
+        onPressed: onPressed,
+        style: ElevatedButton.styleFrom(
+          // Full width button
+          foregroundColor: Colors.white,
+          backgroundColor: Colors.red, // Text color
+          padding: const EdgeInsets.symmetric(horizontal: 140, vertical: 10),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10), // Rounded corners
+          ),
         ),
+        child: Text(text, style: const TextStyle(fontSize: 20), textAlign: TextAlign.center),
       ),
-      child: Text(text, style: const TextStyle(fontSize: 20)),
     );
   }
 }
