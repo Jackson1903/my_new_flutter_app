@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../data/models/card_investment.dart';
+import '../../data/models/card_investment.dart';
 
 class StyledCards extends StatelessWidget {
   final List<CardInvestment> investments;

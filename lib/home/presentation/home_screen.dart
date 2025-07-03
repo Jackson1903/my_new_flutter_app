@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:my_new_flutter_app/presentation/screens/new_invesment_screen.dart';
-import 'package:my_new_flutter_app/presentation/screens/login_screen.dart';
-import 'package:my_new_flutter_app/wigets/styled_button.dart';
+import 'package:my_new_flutter_app/invesment/presentation/new_invesment_screen.dart';
+import 'package:my_new_flutter_app/login/presentation/login_screen.dart';
+import 'package:my_new_flutter_app/core/wigets/styled_button.dart';
 
-import 'package:my_new_flutter_app/wigets/styled_cards.dart';
+import '../wigets/styled_cards.dart';
 
-import '../../data/providers/get_investment_provider.dart';
+import '../../invesment/providers/get_investment_provider.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});

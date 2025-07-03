@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_new_flutter_app/data/models/card_investment.dart';
 import 'package:my_new_flutter_app/presentation/screens/home_screen.dart';
-import 'package:my_new_flutter_app/wigets/styled_button.dart';
+import '../../core/wigets/styled_button.dart';
 
-import '../../data/providers/get_investment_provider.dart';
+import '../providers/get_investment_provider.dart';
 
 class NewInvesmentScreen extends ConsumerStatefulWidget {
   const NewInvesmentScreen({super.key});
@@ -16,7 +16,7 @@ class NewInvesmentScreen extends ConsumerStatefulWidget {
   }
 }
 
-class _NewInvesmentState extends ConsumerState<NewInvesment> {
+class _NewInvesmentState extends ConsumerState<NewInvesmentScreen> {
   final montoController = TextEditingController();
   final nameController = TextEditingController();
   final typeController = TextEditingController();

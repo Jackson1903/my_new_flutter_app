@@ -1,4 +1,4 @@
-import '../../data/models/investment.dart';
+import '../../models/investment.dart';
 import 'package:my_new_flutter_app/data/models/card_investment.dart';
 
 abstract class InvestmentLocalDataSource {
@@ -25,7 +25,8 @@ class InvestmentLocalDataSourceImpl implements InvestmentLocalDataSource {
   @override
   Future<List<CardInvestment>> getAllInvestments() async {
     await Future.delayed(const Duration(milliseconds: 100));
-    return List.from(investments); // Retorna una copia para evitar modificaciones accidentales
+    return List.from(investmentsFromJson(
+        'lib/assets/investment.json')); // Retorna una copia para evitar modificaciones accidentales
   }
 
   @override
@@ -33,7 +34,7 @@ class InvestmentLocalDataSourceImpl implements InvestmentLocalDataSource {
     await Future.delayed(const Duration(milliseconds: 50));
 
     try {
-      final investment = investments.firstWhere(
+      final investment = investmentsFromJson('lib/assets/investment.json').firstWhere(
         (investment) => investment.cardId == id,
       );
       return investment;
@@ -47,36 +48,39 @@ class InvestmentLocalDataSourceImpl implements InvestmentLocalDataSource {
     await Future.delayed(const Duration(milliseconds: 100));
 
     // Verificar que no exista una inversión con el mismo ID
-    final exists = investments.any((inv) => inv.cardId == investment.cardId);
+    final exists = investmentsFromJson('lib/assets/investment.json')
+        .any((inv) => inv.cardId == investment.cardId);
     if (exists) {
       throw Exception('Ya existe una inversión con el ID: ${investment.cardId}');
     }
 
-    investments.add(investment);
+    investmentsFromJson('lib/assets/investment.json').add(investment);
   }
 
   @override
   Future<void> updateInvestment(CardInvestment investment) async {
     await Future.delayed(const Duration(milliseconds: 100));
 
-    final index = investments.indexWhere((inv) => inv.cardId == investment.cardId);
+    final index = investmentsFromJson('lib/assets/investment.json')
+        .indexWhere((inv) => inv.cardId == investment.cardId);
     if (index == -1) {
       throw Exception('Inversión no encontrada para actualizar');
     }
 
-    investments[index] = investment;
+    investmentsFromJson('lib/assets/investment.json')[index] = investment;
   }
 
   @override
   Future<bool> deleteInvestment(String id) async {
     await Future.delayed(const Duration(milliseconds: 100));
 
-    final index = investments.indexWhere((inv) => inv.cardId == id);
+    final index =
+        investmentsFromJson('lib/assets/investment.json').indexWhere((inv) => inv.cardId == id);
     if (index == -1) {
       return false; // No encontrada
     }
 
-    investments.removeAt(index);
+    investmentsFromJson('lib/assets/investment.json').removeAt(index);
     return true;
   }
 
@@ -84,7 +88,9 @@ class InvestmentLocalDataSourceImpl implements InvestmentLocalDataSource {
   Future<List<CardInvestment>> getInvestmentsByType(String type) async {
     await Future.delayed(const Duration(milliseconds: 80));
 
-    return investments.where((investment) => investment.cardType == type).toList();
+    return investmentsFromJson('lib/assets/investment.json')
+        .where((investment) => investment.cardType == type)
+        .toList();
   }
 
   @override
@@ -92,7 +98,7 @@ class InvestmentLocalDataSourceImpl implements InvestmentLocalDataSource {
     await Future.delayed(const Duration(milliseconds: 50));
 
     double total = 0.0;
-    for (final investment in investments) {
+    for (final investment in investmentsFromJson('lib/assets/investment.json')) {
       total += investment.investmentAmount;
     }
     return total;
@@ -101,7 +107,7 @@ class InvestmentLocalDataSourceImpl implements InvestmentLocalDataSource {
   @override
   Future<void> clearAllInvestments() async {
     await Future.delayed(const Duration(milliseconds: 100));
-    investments.clear();
+    investmentsFromJson('lib/assets/investment.json').clear();
   }
 
   @override
@@ -109,8 +115,8 @@ class InvestmentLocalDataSourceImpl implements InvestmentLocalDataSource {
     await Future.delayed(const Duration(milliseconds: 150));
 
     // Reemplazar toda la lista con los nuevos datos
-    investments.clear();
-    investments.addAll(newInvestments);
+    investmentsFromJson('lib/assets/investment.json').clear();
+    investmentsFromJson('lib/assets/investment.json').addAll(newInvestments);
   }
 
   // Métodos adicionales para estadísticas locales
@@ -118,7 +124,7 @@ class InvestmentLocalDataSourceImpl implements InvestmentLocalDataSource {
     await Future.delayed(const Duration(milliseconds: 80));
 
     final Map<String, int> countByType = {};
-    for (final investment in investments) {
+    for (final investment in investmentsFromJson('lib/assets/investment.json')) {
       countByType[investment.cardType] = (countByType[investment.cardType] ?? 0) + 1;
     }
     return countByType;
@@ -128,7 +134,7 @@ class InvestmentLocalDataSourceImpl implements InvestmentLocalDataSource {
     await Future.delayed(const Duration(milliseconds: 80));
 
     final Map<String, double> amountByType = {};
-    for (final investment in investments) {
+    for (final investment in investmentsFromJson('lib/assets/investment.json')) {
       amountByType[investment.cardType] =
           (amountByType[investment.cardType] ?? 0.0) + investment.investmentAmount;
     }
@@ -138,18 +144,18 @@ class InvestmentLocalDataSourceImpl implements InvestmentLocalDataSource {
   Future<CardInvestment?> getHighestInvestment() async {
     await Future.delayed(const Duration(milliseconds: 50));
 
-    if (investments.isEmpty) return null;
+    if (investmentsFromJson('lib/assets/investment.json').isEmpty) return null;
 
-    return investments.reduce(
+    return investmentsFromJson('lib/assets/investment.json').reduce(
         (current, next) => current.investmentAmount > next.investmentAmount ? current : next);
   }
 
   Future<CardInvestment?> getLowestInvestment() async {
     await Future.delayed(const Duration(milliseconds: 50));
 
-    if (investments.isEmpty) return null;
+    if (investmentsFromJson('lib/assets/investment.json').isEmpty) return null;
 
-    return investments.reduce(
+    return investmentsFromJson('lib/assets/investment.json').reduce(
         (current, next) => current.investmentAmount < next.investmentAmount ? current : next);
   }
 }

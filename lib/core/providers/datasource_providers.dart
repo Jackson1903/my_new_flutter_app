@@ -1,6 +1,6 @@
-import 'package:my_new_flutter_app/domain/datasources/investment_local_datasource.dart';
-import 'package:my_new_flutter_app/domain/datasources/investment_remote_datasource.dart';
-import 'package:my_new_flutter_app/data/providers/dio_provider.dart';
+import 'package:my_new_flutter_app/invesment/domain/datasources/investment_local_datasource.dart';
+import 'package:my_new_flutter_app/invesment/domain/datasources/investment_remote_datasource.dart';
+import 'package:my_new_flutter_app/core/providers/dio_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'datasource_providers.g.dart';

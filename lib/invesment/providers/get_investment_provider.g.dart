@@ -7,7 +7,7 @@ part of 'get_investment_provider.dart';
 // **************************************************************************
 
 String _$getInvestmentProviderHash() =>
-    r'f00b711b009d6fd4dbe6f4b13a40ca0226eb7e83';
+    r'68ae9f82ac0ef46654ce30a04bd72b223bb9ae98';
 
 /// See also [GetInvestmentProvider].
 @ProviderFor(GetInvestmentProvider)

@@ -1,7 +1,7 @@
 import 'package:my_new_flutter_app/data/models/card_investment.dart';
-import 'package:my_new_flutter_app/domain/datasources/investment_local_datasource.dart';
-import 'package:my_new_flutter_app/domain/datasources/investment_remote_datasource.dart';
-import 'package:my_new_flutter_app/data/repositories/investment_repository.dart';
+import 'package:my_new_flutter_app/invesment/domain/datasources/investment_local_datasource.dart';
+import 'package:my_new_flutter_app/invesment/domain/datasources/investment_remote_datasource.dart';
+import 'package:my_new_flutter_app/invesment/data/repositories/investment_repository.dart';
 
 class InvestmentRepository extends InvestmentRepositoryContract {
   final InvestmentRemoteDataSource _remoteDataSource;
