@@ -1,4 +1,4 @@
-import 'package:my_new_flutter_app/data/investment.dart';
+import '../../data/models/investment.dart';
 import 'package:my_new_flutter_app/data/models/card_investment.dart';
 
 abstract class InvestmentLocalDataSource {

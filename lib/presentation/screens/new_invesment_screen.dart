@@ -7,11 +7,11 @@ import 'package:my_new_flutter_app/wigets/styled_button.dart';
 
 import '../../data/providers/get_investment_provider.dart';
 
-class NewInvesment extends ConsumerStatefulWidget {
-  const NewInvesment({super.key});
+class NewInvesmentScreen extends ConsumerStatefulWidget {
+  const NewInvesmentScreen({super.key});
 
   @override
-  ConsumerState<NewInvesment> createState() {
+  ConsumerState<NewInvesmentScreen> createState() {
     return _NewInvesmentState();
   }
 }

@@ -90,7 +90,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   ),
                   onPressed: () {
                     Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (ctx) => const NewInvesment()));
+                        .push(MaterialPageRoute(builder: (ctx) => const NewInvesmentScreen()));
                     // setState(() {
                     //investments.add(
                     //const CardInvestment(
