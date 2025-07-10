@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_new_flutter_app/login/presentation/login_screen.dart';
+import 'package:my_new_flutter_app/features/login/presentation/login_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
