@@ -1,0 +1,38 @@
+[
+  {
+    "id": "1",
+    "name": "Investment 1",
+    "type": "FI",
+    "amount": 100.0
+  },
+  {
+    "id": "2",
+    "name": "Investment 2",
+    "type": "FO",
+    "amount": 200.0
+  },
+  {
+    "id": "3",
+    "name": "Investment 3",
+    "type": "FO",
+    "amount": 300.0
+  },
+  {
+    "id": "4",
+    "name": "Investment 4",
+    "type": "FI",
+    "amount": 400.0
+  },
+  {
+    "id": "5",
+    "name": "Investment 5",
+    "type": "FI",
+    "amount": 500.0
+  },
+  {
+    "id": "6",
+    "name": "Investment 6",
+    "type": "FO",
+    "amount": 600.0
+  }
+]

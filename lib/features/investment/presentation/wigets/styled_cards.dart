@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:my_new_flutter_app/data/investments.dart';
+
+import '../../data/models/investment.dart';
 
 class StyledCards extends StatelessWidget {
-  const StyledCards({super.key});
+  final List<Investment> investments;
+  const StyledCards({required this.investments, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +16,8 @@ class StyledCards extends StatelessWidget {
           return Card(
             margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             child: ListTile(
-              title: Text(investment.cardName ?? ''),
-              subtitle: Text(
-                  'Monto: ₡${investment.investmentAmount.toStringAsFixed(2) ?? ''}'),
+              title: Text(investment.cardName),
+              subtitle: Text('Monto: ₡${investment.investmentAmount}'),
               trailing: const Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -25,15 +26,14 @@ class StyledCards extends StatelessWidget {
                   Icon(Icons.wallet),
                 ],
               ),
-              contentPadding: const EdgeInsets.all(50),
+              contentPadding: const EdgeInsets.all(16),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
               ),
               tileColor: Colors.grey[200],
               leading: CircleAvatar(
                 backgroundColor: Colors.red,
-                child: Text(investment.cardType ?? '',
-                    style: const TextStyle(color: Colors.white)),
+                child: Text(investment.cardType, style: const TextStyle(color: Colors.white)),
               ),
             ),
           );
