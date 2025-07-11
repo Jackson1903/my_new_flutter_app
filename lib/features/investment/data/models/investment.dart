@@ -9,22 +9,15 @@ class Investment with _$Investment {
     required String cardId,
     required String cardName,
     required String cardType,
-    required double investmentAmount,
+    required String investmentAmount,
   }) = _Investment;
 
-  // Constructor con valores por defecto
-  factory Investment.create({
-    required String cardName,
-    required String cardType,
-    required double investmentAmount,
-  }) {
+  factory Investment.fromJson(Map<String, dynamic> json) {
     return Investment(
-      cardId: DateTime.now().millisecondsSinceEpoch.toString(),
-      cardName: cardName,
-      cardType: cardType,
-      investmentAmount: investmentAmount,
+      cardId: json['id']?.toString() ?? '',
+      cardName: json['name']?.toString() ?? '',
+      cardType: json['type']?.toString() ?? '',
+      investmentAmount: json['amount']?.toString() ?? '0',
     );
   }
-
-  factory Investment.fromJson(Map<String, dynamic> json) => _$InvestmentFromJson(json);
 }

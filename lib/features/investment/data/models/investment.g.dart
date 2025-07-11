@@ -11,7 +11,7 @@ _$InvestmentImpl _$$InvestmentImplFromJson(Map<String, dynamic> json) =>
       cardId: json['cardId'] as String,
       cardName: json['cardName'] as String,
       cardType: json['cardType'] as String,
-      investmentAmount: (json['investmentAmount'] as num).toDouble(),
+      investmentAmount: json['investmentAmount'] as String,
     );
 
 Map<String, dynamic> _$$InvestmentImplToJson(_$InvestmentImpl instance) =>

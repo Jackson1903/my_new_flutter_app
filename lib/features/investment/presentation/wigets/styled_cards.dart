@@ -17,7 +17,7 @@ class StyledCards extends StatelessWidget {
             margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             child: ListTile(
               title: Text(investment.cardName),
-              subtitle: Text('Monto: ₡${investment.investmentAmount.toStringAsFixed(2)}'),
+              subtitle: Text('Monto: ₡${investment.investmentAmount}'),
               trailing: const Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [

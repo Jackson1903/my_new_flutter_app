@@ -23,7 +23,7 @@ mixin _$Investment {
   String get cardId => throw _privateConstructorUsedError;
   String get cardName => throw _privateConstructorUsedError;
   String get cardType => throw _privateConstructorUsedError;
-  double get investmentAmount => throw _privateConstructorUsedError;
+  String get investmentAmount => throw _privateConstructorUsedError;
 
   /// Serializes this Investment to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -45,7 +45,7 @@ abstract class $InvestmentCopyWith<$Res> {
       {String cardId,
       String cardName,
       String cardType,
-      double investmentAmount});
+      String investmentAmount});
 }
 
 /// @nodoc
@@ -84,7 +84,7 @@ class _$InvestmentCopyWithImpl<$Res, $Val extends Investment>
       investmentAmount: null == investmentAmount
           ? _value.investmentAmount
           : investmentAmount // ignore: cast_nullable_to_non_nullable
-              as double,
+              as String,
     ) as $Val);
   }
 }
@@ -101,7 +101,7 @@ abstract class _$$InvestmentImplCopyWith<$Res>
       {String cardId,
       String cardName,
       String cardType,
-      double investmentAmount});
+      String investmentAmount});
 }
 
 /// @nodoc
@@ -138,7 +138,7 @@ class __$$InvestmentImplCopyWithImpl<$Res>
       investmentAmount: null == investmentAmount
           ? _value.investmentAmount
           : investmentAmount // ignore: cast_nullable_to_non_nullable
-              as double,
+              as String,
     ));
   }
 }
@@ -162,7 +162,7 @@ class _$InvestmentImpl implements _Investment {
   @override
   final String cardType;
   @override
-  final double investmentAmount;
+  final String investmentAmount;
 
   @override
   String toString() {
@@ -209,7 +209,7 @@ abstract class _Investment implements Investment {
       {required final String cardId,
       required final String cardName,
       required final String cardType,
-      required final double investmentAmount}) = _$InvestmentImpl;
+      required final String investmentAmount}) = _$InvestmentImpl;
 
   factory _Investment.fromJson(Map<String, dynamic> json) =
       _$InvestmentImpl.fromJson;
@@ -221,7 +221,7 @@ abstract class _Investment implements Investment {
   @override
   String get cardType;
   @override
-  double get investmentAmount;
+  String get investmentAmount;
 
   /// Create a copy of Investment
   /// with the given fields replaced by the non-null parameter values.

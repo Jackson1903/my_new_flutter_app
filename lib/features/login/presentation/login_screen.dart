@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_new_flutter_app/presentation/screens/home_screen.dart';
 import '../../core/presentation/wigets/styled_button.dart';
 import '../../core/presentation/wigets/styled_textfield.dart';
+import '../../investment/presentation/screen/home_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
