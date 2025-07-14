@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -8,7 +7,7 @@ import '../../domain/datasource/investment_datasource.dart';
 import '../../domain/repository/investment_repository.dart';
 import '../models/investment.dart';
 
-part 'investment_datasource.g.dart';
+part 'investment_datasource_impl.g.dart';
 
 class InvestmentDataSourceImpl implements InvestmentDataSource {
   final Dio _dio;
@@ -43,19 +42,6 @@ class InvestmentDataSourceImpl implements InvestmentDataSource {
       }
     } catch (e) {
       throw Exception('Failed to load investments: $e');
-    }
-  }
-
-  @override
-  Future<void> addInvestment(Investment investment) async {
-    try {
-      await repository.addInvestment(investment);
-      // Refrescar el estado después de agregar
-      var ref;
-      ref.invalidateSelf();
-    } catch (e) {
-      debugPrint('Error al agregar inversión: $e');
-      rethrow;
     }
   }
 }

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'investment_datasource.dart';
+part of 'investment_datasource_impl.dart';
 
 // **************************************************************************
 // RiverpodGenerator
