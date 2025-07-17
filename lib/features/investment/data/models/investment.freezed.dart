@@ -20,9 +20,13 @@ Investment _$InvestmentFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Investment {
+  @JsonKey(name: 'id')
   String get cardId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'name')
   String get cardName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'type')
   String get cardType => throw _privateConstructorUsedError;
+  @JsonKey(name: 'amount')
   String get investmentAmount => throw _privateConstructorUsedError;
 
   /// Serializes this Investment to a JSON map.
@@ -42,10 +46,10 @@ abstract class $InvestmentCopyWith<$Res> {
       _$InvestmentCopyWithImpl<$Res, Investment>;
   @useResult
   $Res call(
-      {String cardId,
-      String cardName,
-      String cardType,
-      String investmentAmount});
+      {@JsonKey(name: 'id') String cardId,
+      @JsonKey(name: 'name') String cardName,
+      @JsonKey(name: 'type') String cardType,
+      @JsonKey(name: 'amount') String investmentAmount});
 }
 
 /// @nodoc
@@ -98,10 +102,10 @@ abstract class _$$InvestmentImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String cardId,
-      String cardName,
-      String cardType,
-      String investmentAmount});
+      {@JsonKey(name: 'id') String cardId,
+      @JsonKey(name: 'name') String cardName,
+      @JsonKey(name: 'type') String cardType,
+      @JsonKey(name: 'amount') String investmentAmount});
 }
 
 /// @nodoc
@@ -147,21 +151,25 @@ class __$$InvestmentImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$InvestmentImpl implements _Investment {
   _$InvestmentImpl(
-      {required this.cardId,
-      required this.cardName,
-      required this.cardType,
-      required this.investmentAmount});
+      {@JsonKey(name: 'id') required this.cardId,
+      @JsonKey(name: 'name') required this.cardName,
+      @JsonKey(name: 'type') required this.cardType,
+      @JsonKey(name: 'amount') required this.investmentAmount});
 
   factory _$InvestmentImpl.fromJson(Map<String, dynamic> json) =>
       _$$InvestmentImplFromJson(json);
 
   @override
+  @JsonKey(name: 'id')
   final String cardId;
   @override
+  @JsonKey(name: 'name')
   final String cardName;
   @override
+  @JsonKey(name: 'type')
   final String cardType;
   @override
+  @JsonKey(name: 'amount')
   final String investmentAmount;
 
   @override
@@ -206,21 +214,26 @@ class _$InvestmentImpl implements _Investment {
 
 abstract class _Investment implements Investment {
   factory _Investment(
-      {required final String cardId,
-      required final String cardName,
-      required final String cardType,
-      required final String investmentAmount}) = _$InvestmentImpl;
+          {@JsonKey(name: 'id') required final String cardId,
+          @JsonKey(name: 'name') required final String cardName,
+          @JsonKey(name: 'type') required final String cardType,
+          @JsonKey(name: 'amount') required final String investmentAmount}) =
+      _$InvestmentImpl;
 
   factory _Investment.fromJson(Map<String, dynamic> json) =
       _$InvestmentImpl.fromJson;
 
   @override
+  @JsonKey(name: 'id')
   String get cardId;
   @override
+  @JsonKey(name: 'name')
   String get cardName;
   @override
+  @JsonKey(name: 'type')
   String get cardType;
   @override
+  @JsonKey(name: 'amount')
   String get investmentAmount;
 
   /// Create a copy of Investment
